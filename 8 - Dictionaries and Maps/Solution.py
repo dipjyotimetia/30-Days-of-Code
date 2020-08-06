@@ -1,19 +1,16 @@
-num = int(input())
+n = int(input())
+phonebook = dict()
+for i in range(n):
+    line = input()
+    line = line.split()
+    phonebook[line[0]] = phonebook.get(line[0],line[1])
 
-phone_book = {}
-
-for i in range(0, num):
-    entry = str(input()).split(" ")
-
-    name = entry[0]
-    phone = int(entry[1])
-    phone_book[name] = phone
-
-for j in range(0, num):
-    name = str(input())
-
-    if name in phone_book:
-        phone = phone_book[name]
-        print(name + "=" + str(phone))
-    else:
-        print("Not found")
+while 1:
+    try:
+        q = input()
+        if q in phonebook:
+            print(str(q) + "=" + str(phonebook[q]))
+        else:
+            print("Not found")
+    except:
+        break
